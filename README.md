@@ -72,7 +72,7 @@ Please see [INSTALL.md](INSTALL.md).
 
 3. Test:
 
-   We will soon release the code for e2ec with multi component detection. Currently only supported for testing e2ec performance on cityscapes dataset.
+   We will soon release the code for samsnake with multi component detection. Currently only supported for testing samsnake performance on cityscapes dataset.
 
    ```
    # testing segmentation accuracy on Cityscapes with coco evaluator
@@ -210,4 +210,4 @@ If  the annotations is not in coco style:
 
 ## Acknowledgement
 
-Code is largely based on [E2EC](https://github.com/zhang-tao-whu/e2ec). Thanks for their wonderful works.
+Code is largely based on [samsnake]. Thanks for their wonderful works.
