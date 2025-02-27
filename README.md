@@ -210,4 +210,4 @@ If  the annotations is not in coco style:
 
 ## Acknowledgement
 
-Code is largely based on [samsnake]. Thanks for their wonderful works.
+Code is largely based on [E2EC](https://github.com/zhang-tao-whu/e2ec). Thanks for their wonderful works.
