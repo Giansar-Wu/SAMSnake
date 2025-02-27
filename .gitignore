@@ -1,0 +1,7 @@
+data/*
+runs/*
+show/*
+
+!.gitkeep
+*.pt
+*.pth
