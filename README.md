@@ -12,24 +12,11 @@ Please see [INSTALL.md](INSTALL.md).
 ## Testing
 
 ### Prepare weights
-1. Download the model weights [here]
+1. Download the model weights [here](The link will be published soon after we successfully upload weights to Google Drive)
 
 2. Unzip weights to SAMSnake.
    ```
    unzip SAMSnake_weights.zip -d /path/tp/SAMSnake
-   ```
-
-### Testing on COCO
-
-   ```
-   # testing segmentation accuracy on coco val set
-   python test.py coco --checkpoint /path/to/model_coco.pth --with_nms True
-
-   # testing the speed
-   python test.py coco --checkpoint /path/to/model_coco.pth --with_nms True --type speed
-
-   # testing on coco test-dev set, run and submit data/result/results.json
-   python test.py coco --checkpoint /path/to/model_coco.pth --with_nms True --dataset coco_test
    ```
 
 ### Testing on SBD
@@ -42,24 +29,14 @@ Please see [INSTALL.md](INSTALL.md).
    python test.py sbd --checkpoint /path/to/model_sbd.pth --type speed
    ```
 
-### Testing on KINS
-
-   ```
-   # testing segmentation accuracy on KINS
-   python test.py kitti --checkpoint /path/to/model_kitti.pth
-
-   # testing the speed
-   python test.py kitti --checkpoint /path/to/model_kitti.pth --type speed
-   ```
-
 ### Testing on Cityscapes 
 
    ```
-   # testing segmentation accuracy on Cityscapes with coco evaluator
-   python test.py cityscapesCoco --checkpoint /path/to/model_cityscapes.pth
-
    # with cityscapes official evaluator
    python test.py cityscapes --checkpoint /path/to/model_cityscapes.pth
+
+   # testing segmentation accuracy on Cityscapes with coco evaluator
+   python test.py cityscapesCoco --checkpoint /path/to/model_cityscapes.pth
 
    # testing the speed
    python test.py cityscapesCoco \
@@ -70,11 +47,40 @@ Please see [INSTALL.md](INSTALL.md).
    --dataset cityscapes_test
    ```
 
+### Testing on COCO
+
+   ```
+   # testing segmentation accuracy on coco val set
+   python test.py coco --checkpoint /path/to/model_coco.pth
+
+   # testing the speed
+   python test.py coco --checkpoint /path/to/model_coco.pth --type speed
+
+   # testing on coco test-dev set, run and submit data/result/results.json
+   python test.py coco --checkpoint /path/to/model_coco.pth --dataset coco_test
+   ```
+
+### Testing on KINS
+
+   ```
+   # testing segmentation accuracy on KINS
+   python test.py kitti --checkpoint /path/to/model_kitti.pth
+
+   # testing the speed
+   python test.py kitti --checkpoint /path/to/model_kitti.pth --type speed
+   ```
+
+### Testing on COCOA
+
+   ```
+   # testing segmentation accuracy on cocoa val set
+   python test.py cocoa --checkpoint /path/to/model_cocoa.pth
+
+   # testing the speed
+   python test.py cocoa --checkpoint /path/to/model_cocoa.pth --type speed
+   ```
+
 ## Visualization
-
-1. Download the [pretrained model].
-
-2. Visualize:
 
    ```
    # inference and visualize the images with coco pretrained model
@@ -107,57 +113,44 @@ Please see [INSTALL.md](INSTALL.md).
 
 ## Training
 
-We have released the code for multi GPU training with ddp.
-
 ### Training with multi GPUS
 
 ```
-CUDA_VISIBLE_DEVICES=${gpu_ids} python -m torch.distributed.launch \
---nproc_per_node ${gpu_nums} \
+CUDA_VISIBLE_DEVICES=${gpu_ids} torchrun 
+--standalone \
+--nnodes=${nodes_num} \
+--nproc-per-node=${gpu_nums_per_node} \
 train_net_ddp.py \
 --config_file ${dataset} \
---bs ${bs_per_gpu} \
---gpus ${gpu_nums}
+--bs ${batchsize} \
+
 # the example of training sbd dataset using 2 gpus
-CUDA_VISIBLE_DEVICES=0,1 python -m torch.distributed.launch \
---nproc_per_node 2 \
+CUDA_VISIBLE_DEVICES=0,1 torchrun \
+--standalone \
+--nnodes=1 \
+--nproc-per-node=2 \
 train_net_ddp.py \
 --config_file sbd \
---bs 12 \
---gpus 2
+--bs 24
 ```
 
-### Training on SBD
+### Training with single GPU
 
 ```
+# sbd
 python train_net.py sbd --bs $batch_size
-# if you do not want to use dinamic matching loss (significantly improves 
-# contour detail but introduces jaggedness), please set --dml as False
-python train_net.py sbd --bs $batch_size --dml False
-```
 
-### Training on KINS
-
-```
-python train_net.py kitti --bs $batch_size
-```
-
-### Training on Cityscapes
-
-```
+# cityscapes
 python train_net.py cityscapesCoco --bs $batch_size
-```
 
-### Training on COCO
-
-In fact it is possible to achieve the same accuracy without training so many epochs.
-
-```
-# first to train with adam
+# coco
 python train_net.py coco --bs $batch_size
-# then finetune with sgd
-python train_net.py coco_finetune --bs $batch_size \
---type finetune --checkpoint data/model/139.pth
+
+# kitti
+python train_net.py kitti --bs $batch_size
+
+# cocoa
+python train_net.py cocoa --bs $batch_size
 ```
 
 ### Training on the other dataset
