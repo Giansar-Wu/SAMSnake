@@ -14,7 +14,6 @@ model.heads = {'ct_hm': model.class_num, 'mask':1}
 model.evolve_iters = 3
 
 model.det_net = "YOLOv10"
-model.det_cfg = os.path.join(PROJECT_PATH, "network", "yolov10", "cfg", "ylov10m.yaml")
 model.det_weights = os.path.join(PROJECT_PATH, "network", "yolov10", "weights", "yolov10m.pt")
 
 train.batch_size = 24

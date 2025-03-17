@@ -16,7 +16,7 @@ pip install -r requirements.txt
 ### Compile cuda extensions 
 
 ```
-ROOT=/path/to/samsnake
+ROOT=/path/to/SAMSnake
 cd $ROOT/network/backbone/DCNv2-master
 # please check your cuda version and modify the cuda version in the command
 export CUDA_HOME="/usr/local/cuda-12.1"
@@ -47,7 +47,7 @@ Maybe you will encounter some build errors. You can choose a plan :
     
 4. Create a soft link:
     ```
-    ROOT=/path/to/samsnake
+    ROOT=/path/to/SAMSnake
     cd $ROOT/data
     ln -s /path/to/cityscapes cityscapes
     ```
@@ -68,7 +68,7 @@ Maybe you will encounter some build errors. You can choose a plan :
    ```
 4. Create a soft link:
    ```
-    ROOT=/path/to/samsnake
+    ROOT=/path/to/SAMSnake
     cd $ROOT/data
     ln -s /path/to/kitti kitti
 
@@ -77,7 +77,7 @@ Maybe you will encounter some build errors. You can choose a plan :
 1. Download the Sbd dataset at [here](https://zjueducn-my.sharepoint.com/:u:/g/personal/pengsida_zju_edu_cn/EV2P-6J0s-hClwW8uZy1ZXYBPU0XwR7Ch7EBGOG2vfACGQ?e=wpyE2M).
 2. Create a soft link:
     ```
-    ROOT=/path/to/samsnake
+    ROOT=/path/to/SAMSnake
     cd $ROOT/data
     ln -s /path/to/sbd sbd
     ```
@@ -102,7 +102,7 @@ Maybe you will encounter some build errors. You can choose a plan :
 3. Create a soft link:
 
    ```
-   ROOT=/path/to/samsnake
+   ROOT=/path/to/SAMSnake
    cd $ROOT/data
    ln -s /path/to/coco coco
    ```
@@ -125,7 +125,7 @@ Maybe you will encounter some build errors. You can choose a plan :
 3. Create a soft link:
 
    ```
-   ROOT=/path/to/samsnake
+   ROOT=/path/to/SAMSnake
    cd $ROOT/data
    ln -s /path/to/cocoa cocoa
    ```

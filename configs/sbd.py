@@ -15,7 +15,6 @@ train.with_cmask = True
 train.with_hm = True 
 
 model.det_net = "YOLOv10"
-model.det_cfg = os.path.join(PROJECT_PATH, "network", "yolov10", "cfg", "yolov10m_sbd.yaml")
 model.det_weights = os.path.join(PROJECT_PATH, "network", "yolov10", "weights", "sbd.pt")
 
 train.batch_size = 20

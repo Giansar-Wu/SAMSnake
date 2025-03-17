@@ -57,7 +57,6 @@ class model(object):
     evolve_iters = 3
     
     det_net = "YOLOv10"
-    det_cfg = ''
     det_weights = ''
 
 class train(object):

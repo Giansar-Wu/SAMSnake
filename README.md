@@ -11,13 +11,15 @@ Please see [INSTALL.md](INSTALL.md).
 
 ## Testing
 
+### Prepare weights
+1. Download the model weights [here]
+
+2. Unzip weights to SAMSnake.
+   ```
+   unzip SAMSnake_weights.zip -d /path/tp/SAMSnake
+   ```
+
 ### Testing on COCO
-
-1. Download the pretrained model [here].
-
-2. Prepared the COCO dataset according to the [INSTALL.md](INSTALL.md).
-
-3. Test:
 
    ```
    # testing segmentation accuracy on coco val set
@@ -32,12 +34,6 @@ Please see [INSTALL.md](INSTALL.md).
 
 ### Testing on SBD
 
-1. Download the pretrained model [here].
-
-2. Prepared the SBD dataset according to the [INSTALL.md](INSTALL.md).
-
-3. Test:
-
    ```
    # testing segmentation accuracy on SBD
    python test.py sbd --checkpoint /path/to/model_sbd.pth
@@ -48,14 +44,6 @@ Please see [INSTALL.md](INSTALL.md).
 
 ### Testing on KINS
 
-1. Download the pretrained model [here].
-
-2. Prepared the KINS dataset according to the [INSTALL.md](INSTALL.md).
-
-3. Test:
-
-   Maybe you will find some troules, such as `object of type <class 'numpy.float64'> cannot be safely interpreted as an integer`. Please modify the  `/path/to/site-packages/pycocotools/cooceval.py`. Replace `np.round((0.95 - .5) / .05) ` in lines 506 and 507 with `int(np.round((0.95 - .5) / .05))`.
-
    ```
    # testing segmentation accuracy on KINS
    python test.py kitti --checkpoint /path/to/model_kitti.pth
@@ -65,14 +53,6 @@ Please see [INSTALL.md](INSTALL.md).
    ```
 
 ### Testing on Cityscapes 
-
-1. Download the pretrained model [here].
-
-2. Prepared the KINS dataset according to the [INSTALL.md](INSTALL.md).
-
-3. Test:
-
-   We will soon release the code for samsnake with multi component detection. Currently only supported for testing samsnake performance on cityscapes dataset.
 
    ```
    # testing segmentation accuracy on Cityscapes with coco evaluator
