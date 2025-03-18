@@ -12,7 +12,7 @@ Please see [INSTALL.md](INSTALL.md).
 ## Testing
 
 ### Prepare weights
-1. Download the model weights [here](The link will be published soon after we successfully upload weights to Google Drive)
+1. Download the model weights [here](https://drive.google.com/file/d/15D3Obdj4hs-q9GGom_JpIAAg4LqWS180/view?usp=sharing).
 
 2. Unzip weights to SAMSnake.
    ```
