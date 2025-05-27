@@ -15,6 +15,7 @@ model.evolve_iters = 3
 model.det_net = "YOLOv10"
 model.det_weights = os.path.join(PROJECT_PATH, "network", "yolov10", "weights", "kitti.pt")
 
+
 train.dataset = 'kitti_train'
 train.optimizer = {'name': 'adamw', 'lr': 1e-4, 'weight_decay': 5e-4}
 train.scheduler = {'name': 'MultiStepLR', 'milestones': [80, 120], 'gamma': 0.25}

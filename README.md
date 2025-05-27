@@ -2,12 +2,12 @@
 
 ![kitti](kins_demo.png)
 
+## Architecture
+![architecture](framework.png)
+
 ## Installation
 
 Please see [INSTALL.md](INSTALL.md).
-
-## Architecture
-![architecture](framework.png)
 
 ## Testing
 
@@ -184,3 +184,19 @@ If  the annotations is not in coco style:
 ## Acknowledgement
 
 Code is largely based on [E2EC](https://github.com/zhang-tao-whu/e2ec). Thanks for their wonderful works.
+
+## Citation
+If this work is helpful to your research or applications, please kindly consider citing our paper as a reference：
+   ```
+   @article{WU2025107491,
+   title = {SAMSnake: A generic contour-based instance segmentation network assisted by Efficient Segment Anything Model},
+   journal = {Neural Networks},
+   volume = {189},
+   pages = {107491},
+   year = {2025},
+   issn = {0893-6080},
+   doi = {https://doi.org/10.1016/j.neunet.2025.107491},
+   url = {https://www.sciencedirect.com/science/article/pii/S0893608025003703},
+   author = {Yejun Wu and Jiao Zhan and Chi Guo and Huyin Zhang}
+   }
+   ```

@@ -91,7 +91,7 @@ class Evaluator:
         coco_eval.evaluate()
         coco_eval.accumulate()
         coco_eval.summarize()
-        # print(F"mIoU:{self.miou(coco_eval.ious)}")
+        print(F"mIoU:{self.miou(coco_eval.ious)}")
         self.results = []
         self.img_ids = []
         self.aps.append(coco_eval.stats[0])

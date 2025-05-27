@@ -14,6 +14,7 @@ model.evolve_iters = 3
 model.det_net = "YOLOv10"
 model.det_weights = os.path.join(PROJECT_PATH, "network", "yolov10", "weights", "cityscapes.pt")
 
+
 train.dataset = 'cityscapes_train'
 train.batch_size = 16
 train.num_workers = 16
