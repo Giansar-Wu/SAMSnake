@@ -7,15 +7,23 @@ def make_dataset(dataset_name, is_test, cfg):
     info = DatasetInfo.dataset_info[dataset_name]
     if is_test:
         from .test import coco, cityscapes, cityscapesCoco, sbd, kitti, cocoa
-        dataset_dict = {'coco': coco.CocoTestDataset, 'cityscapes': cityscapes.Dataset,
+        dataset_dict = {'coco': coco.CocoTestDataset, 
+                        'cityscapes': cityscapes.Dataset,
                         'cityscapesCoco': cityscapesCoco.CityscapesCocoTestDataset,
-                        'kitti': kitti.KittiTestDataset, 'cocoa': cocoa.CocoaTestDataset, 'sbd': sbd.SbdTestDataset}
+                        'kitti': kitti.KittiTestDataset, 
+                        'cocoa': cocoa.CocoaTestDataset, 
+                        'sbd': sbd.SbdTestDataset
+                        }
         dataset = dataset_dict[info['name']]
     else:
         from .train import coco, cityscapes, cityscapesCoco, sbd, kitti, cocoa
-        dataset_dict = {'coco': coco.CocoDataset, 'cityscapes': cityscapes.Dataset,
+        dataset_dict = {'coco': coco.CocoDataset, 
+                        'cityscapes': cityscapes.Dataset,
                         'cityscapesCoco': cityscapesCoco.CityscapesCocoDataset,
-                        'kitti': kitti.KittiDataset, 'cocoa': cocoa.CocoaDataset, 'sbd': sbd.SbdDataset}
+                        'kitti': kitti.KittiDataset, 
+                        'cocoa': cocoa.CocoaDataset, 
+                        'sbd': sbd.SbdDataset
+                        }
         dataset = dataset_dict[info['name']]
     dataset = dataset(info['anno_dir'], info['image_dir'], info['split'], cfg)
     return dataset
